@@ -12,7 +12,7 @@ import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
 import { PackageInfo, packages } from '../lib/packages';
-import build from './build';
+import build from './build-bazel';
 import create from './create';
 
 // Added to the README.md of the snapshot. This is markdown.
@@ -86,6 +86,7 @@ async function _publishSnapshot(
   const destPath = path.join(root, path.basename(pkg.snapshotRepo));
 
   _exec('git', ['clone', url], { cwd: root }, publishLogger);
+
   if (branch) {
     // Try to checkout an existing branch, otherwise create it.
     try {
