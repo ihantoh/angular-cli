@@ -387,7 +387,7 @@ workflows:
 
       # Publish jobs
       - snapshot_publish:
-          <<: *only_release_branches
+          # <<: *only_release_branches
           requires:
             - build
             - test
