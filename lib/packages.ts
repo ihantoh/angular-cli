@@ -160,7 +160,7 @@ let gitShaCache: string;
 function _getSnapshotHash(_pkg: PackageInfo): string {
   if (!gitShaCache) {
     const opts = { cwd: __dirname }; // Ensure we call git from within this repo
-    gitShaCache = _exec('git log --format=%h -n1', opts);
+    gitShaCache = _exec('git log --format=%H -n1', opts);
   }
 
   return gitShaCache;
